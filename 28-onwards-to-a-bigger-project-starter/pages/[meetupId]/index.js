@@ -1,14 +1,32 @@
 import MeetupDetail from '@/components/meetups/MeetupDetail';
 
-function MeetupDetails() {
+function MeetupDetails(props) {
    return (
-        <MeetupDetail 
-            image="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/1600px-Stadtbild_M%C3%BCnchen.jpg"
-            title="A First Meetup"
-            address="Some address 5, 12345 Some City"
-            description="This is a first meetup!"
+        <MeetupDetail
+            image={props.meetupData.image}
+            title={props.meetupData.title}
+            address={props.meetupData.address}
+            description={props.meetupData.description}
         />
     );
+}
+
+export async function getStaticProps(context) {
+    // fetch data for a single meetup
+
+    const meetupId = context.params.meetupId;
+
+    return {
+        props: {
+            meetupData: {
+                id: meetupId,
+                image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/1600px-Stadtbild_M%C3%BCnchen.jpg',
+                title: 'A First Meetup',
+                address: 'Some address 5, 12345 Some City',
+                description: 'This is a first meetup!'
+            }
+        }
+    };
 }
 
 export default MeetupDetails;
