@@ -1,12 +1,12 @@
 import MeetupDetail from '@/components/meetups/MeetupDetail';
 
-function MeetupDetails(props) {
+function MeetupDetails() {
    return (
         <MeetupDetail
-            image={props.meetupData.image}
-            title={props.meetupData.title}
-            address={props.meetupData.address}
-            description={props.meetupData.description}
+            image='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/1600px-Stadtbild_M%C3%BCnchen.jpg'
+            title='A First Meetup'
+            address='Some address 5, 12345 Some City'
+            description='This is a first meetup!'
         />
     );
 }
