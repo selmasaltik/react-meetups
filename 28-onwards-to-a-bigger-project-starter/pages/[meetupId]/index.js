@@ -35,7 +35,7 @@ export async function getStaticPaths() {
     client.close();
 
     return {
-        fallback: false,
+        fallback: 'blocking', // The user waits until the page is fully generated; the page is served only after it is completely and fully loaded.
         paths: meetups.map(meetup => ({ 
             params: { meetupId: meetup._id.toString() } 
         }))
