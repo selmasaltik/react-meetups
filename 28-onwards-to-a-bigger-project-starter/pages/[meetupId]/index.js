@@ -58,11 +58,13 @@ export async function getStaticProps(context) {
 
     return {
         props: {
-            meetupData: selectedMeetup._id.toString(),
-            title: selectedMeetup.title,
-            address: selectedMeetup.address,
-            image: selectedMeetup.image,
-            description: selectedMeetup.description
+            meetupData: {
+                id: selectedMeetup._id.toString(),
+                title: selectedMeetup.title,
+                address: selectedMeetup.address,
+                image: selectedMeetup.image,
+                description: selectedMeetup.description
+            }
         }
     };
 }
